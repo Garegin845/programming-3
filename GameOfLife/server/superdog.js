@@ -1,7 +1,7 @@
-let LivingCreature = require('./LivingCreature')
+let LivingCreature = require('./livingCreature')
 module.exports = class Superdog extends LivingCreature{
   constructor(x, y) {
-    
+    super(x,y)
     this.energy = 10;
     
   }
@@ -35,7 +35,7 @@ module.exports = class Superdog extends LivingCreature{
 
       let superdog = new Superdog(newX, newY);
 
-      dogArr.push(superdog);
+     superdogArr.push(superdog);
     }
   }
 

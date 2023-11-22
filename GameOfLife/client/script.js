@@ -1,3 +1,6 @@
+let socket = io();
+
+
 let side = 30;
 
 
@@ -7,7 +10,7 @@ function setup() {
 
 }
 
-function draw() {
+function drawGame(matrix) {
   for (let y = 0; y < matrix.length; y++) {
     for (let x = 0; x < matrix[y].length; x++) {
       var toLot = side - side * 0.2;
@@ -47,6 +50,6 @@ function draw() {
 
 setInterval(
   function () {
-  socket.on('send matrix', draw)
+  socket.on('send matrix', drawGame)
   },1000
 )

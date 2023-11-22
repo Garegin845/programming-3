@@ -14,7 +14,19 @@ module.exports = class LivingCreature {
       [this.x + 1, this.y + 1]
     ];
   }
-
+  getNewDirections(){
+		this.directions = [
+			[this.x - 1, this.y - 1],
+			[this.x, this.y - 1],
+			[this.x + 1, this.y - 1],
+			[this.x - 1, this.y],
+			[this.x + 1, this.y],
+			[this.x - 1, this.y + 1],
+			[this.x, this.y + 1],
+			[this.x + 1, this.y + 1]
+		];
+	}
+	
   chooseCell(char, char2, char3) {
     let found = [];
     for (let i = 0; i < this.directions.length; i++) {
