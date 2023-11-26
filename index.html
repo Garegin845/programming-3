@@ -3,19 +3,149 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="socket.io/socket.io.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
   <script src="script.js"></script>
+  <style type="text/css">
+    ul li {
+      list-style: none;
+      display: inline-block;
+    }
 
+    body {
+      background: #148ccd;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    canvas {
+      margin-left: 30%;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      text-shadow: black 3px 5px 8px;
+    }
+
+    table {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid rgb(179, 179, 179);
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .grass {
+      background-color: #49cd14;
+    }
+
+    .superdog {
+      background-color: #abcd14;
+    }
+
+    .grassEater {
+      background-color: brown;
+    }
+
+    .bomb {
+      background-color: white;
+    }
+
+    .superman {
+      background-color: #abcbff;
+    }
+
+    .predator {
+      background-color: #96849b;
+    }
+
+    * {
+      font-family: sans-serif;
+    }
+
+    button {
+      position: relative;
+      width: 100px;
+      height: 50px;
+      padding: auto;
+      text-align: center;
+
+      font-weight: bold;
+      border: 2px solid #3eff37;
+      background-color: transparent;
+      color: #000;
+      cursor: pointer;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    span {
+      background-color: #3eff37;
+      height: 100%;
+      width: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      transition: 0.5s;
+    }
+
+    button:hover span {
+      width: 100%;
+    }
+  </style>
+
+
+
+  </title>
 
 </head>
 
 <body>
+  <div style="text-align: center;">
+
+
+  </div>
+  <div class="container">
+
+    <ul>
+      <li>
+        <button onclick="kill()"><span>Kill them all</span></button>
+      </li>
+      <li>
+        <button onclick="addGrass()"><span>Add grass</span></button>
+      </li>
+      <li>
+        <button onclick="addGrassEater()"><span>Add grass eater</span></button>
+      </li>
+      </li>
+      <li>
+        <button id="summerid"><span>Summer</span></button>
+      </li>
+      <li>
+        <button id="winterid"><span>Winter</span></button>
+      </li>
+      <li>
+        <button id="springid"><span>Spring</span></button>
+      </li>
+      <li>
+        <button id="autumnid"><span>Autumn</span></button>
+      </li>
+    </ul>
+  </div>
 
   <h1>Game Of Life</h1>
+
   <button type="button" onclick="sayHello()">
     <span></span>Info
     <script>
@@ -33,7 +163,7 @@
     <tr>
       <th class="grass">Grass ☘️</th>
       <th class="grassEater">Grass Eater 🐄</th>
-      <th class="superdog">Superdog 🐕‍🦺</th>
+      <th class="superdog">Superdog 🐕‍</th>
       <th class="predator">Predator 🦕</th>
       <th class="bomb">Bomb 💣</th>
       <th class="superman">superman 🦸‍♀️</th>
@@ -57,32 +187,8 @@
         Պայթուցիկ հայտնաբելու ժամանակ ոչնչացնում է այն, պաշտպանելով Խոտակերներին։ </td>
     </tr>
   </table>
-  <div class="container">
-    <h1 style="color:rgb(189, 240, 255)">Events</h1>
-    <ul>
-        <li>
-            <button onclick="kill()">Kill them all</button>
-        </li>
-        <li>
-            <button onclick="addGrass()">Add grass</button>
-        </li>
-        <li>
-            <button onclick="addGrassEater()">Add grass eater</button>
-        </li>
-        <li>
-            <button onclick="addPredator()">Add gishatich</button>
-        </li>
-        <li>
-            <button onclick="addSuperman()">Add anicvac dagax</button>
-        </li>
-        <li>
-          <button onclick="addSuperdog()">Add crich</button>
-      </li>
-      <li>
-        <button onclick="addBomb()">Add crich</button>
-    </li>
-    </ul>
-</div
+
+
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 let LivingCreature = require('./livingCreature')
-module.exports = class Superdog extends LivingCreature{
+
+module.exports = class Superdog extends LivingCreature {
   constructor(x, y) {
-    super(x,y)
-    this.energy = 10;
-    
+   super(x,y)
+   this.energy = 5;
+    this.directions = [];
   }
 
   getNewCoordinates() {
@@ -19,42 +20,44 @@ module.exports = class Superdog extends LivingCreature{
     ];
   }
 
-  chooseCell(char,char1,char2) {
+  chooseCell(char4) {
     this.getNewCoordinates();
-    return super.chooseCell(char,char1,char2)
-  }
+    return super.chooseCell(char4);
+}
+
+
   mul() {
-    let emptyCell = this.chooseCell(0);
-    let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
+    let emptyCells = this.chooseCells(0);
+    let newCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
-    if (newCell) {
-      let newX = newCell[0];
-      let newY = newCell[1];
+    if (newCells) {
+      let newX = newCells[0];
+      let newY = newCells[1];
 
-      matrix[newY][newX] = 3;
+      matrix[newY][newX] = 5;
 
-      let superdog = new Superdog(newX, newY);
+      let Superd = new Superdog(newX, newY);
 
-     superdogArr.push(superdog);
+      superdogArr.push(Superd);
     }
   }
 
   eat() {
-    let emptyCell = this.chooseCell(4);
-    let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
+    let emptyCells = this.chooseCells(4);
+    let newCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
-    if (newCell) {
+    if (newCells) {
       this.energy += 5;
-      let newX = newCell[0];
-      let newY = newCell[1];
+      let newX = newCells[0];
+      let newY = newCells[1];
 
-      for (let i in predatorArr) {
-        if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
-          predatorArr.splice(i, 1);
+      for (let i in PredatorArr) {
+        if (newX == PredatorArr[i].x && newY == PredatorArr[i].y) {
+          PredatorArr.splice(i, 1);
         }
       }
 
-      matrix[newY][newX] = 3;
+      matrix[newY][newX] = 5;
       matrix[this.y][this.x] = 0;
 
       this.x = newX;
@@ -69,14 +72,14 @@ module.exports = class Superdog extends LivingCreature{
   }
 
   move() {
-    let emptyCell = this.chooseCell(0, 1);
-    let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
+    let emptyCells = this.chooseCells(0, 1);
+    let newCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
-    if (newCell) {
-      let newX = newCell[0];
-      let newY = newCell[1];
+    if (newCells) {
+      let newX = newCells[0];
+      let newY = newCells[1];
 
-      matrix[newY][newX] = 3;
+      matrix[newY][newX] = 5;
       matrix[this.y][this.x] = 0;
 
       this.x = newX;
@@ -93,9 +96,9 @@ module.exports = class Superdog extends LivingCreature{
   die() {
     matrix[this.y][this.x] = 0;
 
-    for (let i in superdogArr) {
-      if (this.x == superdogArr[i].x && this.y == superdogArr[i].y) {
-        superdogArr.splice(i, 1);
+    for (let i in SuperdogArr) {
+      if (this.x == SuperdogArr[i].x && this.y == SuperdogArr[i].y) {
+        SuperdogArr.splice(i, 1);
       }
     }
   }
